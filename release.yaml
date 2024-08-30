@@ -16,7 +16,7 @@ stages:
         artifactName: 'drop'
         pipeline: samplefunction-dotnet8-CI
         buildVersionToDownload: 'latest'
-        downloadPath: '$(System.ArtifactsDirectory)/${{ variables.Artifact_Path }}'
+        downloadPath: '$(System.ArtifactsDirectory)'
 
     - task: AzureFunctionApp@1
       inputs:
