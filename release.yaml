@@ -1,0 +1,24 @@
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  azureSubscription: 'Azure-service-connection-1'
+  azureFunctionAppName: 'Deploy-Dotnet-API'
+  azureResourceGroupName: 'functionapp-rg'
+
+stages:
+- stage: Deploy
+  jobs:
+  - job: Deploy
+    steps:
+    - task: DownloadBuildArtifacts@0
+      inputs:
+        artifactName: 'drop'
+        downloadPath: '$(System.ArtifactsDirectory)'
+
+    - task: AzureFunctionApp@1
+      inputs:
+        azureSubscription: $(azureSubscription)
+        appName: $(azureFunctionAppName)
+        package: '$(System.ArtifactsDirectory)/drop/*.zip'
+        resourceGroupName: $(azureResourceGroupName)
