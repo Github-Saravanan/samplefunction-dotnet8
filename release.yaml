@@ -11,12 +11,7 @@ stages:
   jobs:
   - job: Deploy
     steps:
-    - task: DownloadBuildArtifacts@0
-      inputs:
-        artifactName: 'drop'
-        pipeline: samplefunction-dotnet8-CI
-        buildVersionToDownload: 'latest'
-        downloadPath: '$(System.ArtifactsDirectory)'
+
     - task: DownloadBuildArtifacts@1
       inputs:
         buildType: 'specific'
