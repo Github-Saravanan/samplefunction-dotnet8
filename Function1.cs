@@ -12,7 +12,7 @@ namespace Sample_Functions
 {
     public static class Function1
     {
-        [FunctionName("Function2")]
+        [FunctionName("Function1")]
         public static async Task<IActionResult> Run(
             [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
             ILogger log)
@@ -27,7 +27,7 @@ namespace Sample_Functions
 
             string responseMessage = string.IsNullOrEmpty(name)
                 ? "This HTTP triggered function executed successfully."
-                : $"Hello, {name}. This HTTP triggered function executed successfully.";
+                : $"Hello, {name}. This HTTP triggered function executed successfully using ADO pipeline";
 
             return new OkObjectResult(responseMessage);
         }
