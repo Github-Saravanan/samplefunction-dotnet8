@@ -3,7 +3,7 @@ pool:
 
 variables:
   azureSubscription: 'Azure-service-connection-1'
-  azureFunctionAppName: 'DotNet8-Function-App'
+  azureFunctionAppName: 'DotNet8-API-FunctionApp'
   azureResourceGroupName: 'functionapp-rg'
 
 stages:
